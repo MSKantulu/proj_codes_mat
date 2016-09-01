@@ -2,7 +2,7 @@ img = imread('D:\ms_class\work\photo-f1-004-01.jpg');
 %{imshow(img);%}
 
 T = img;
-%{for i=1:row-16
+%for i=1:row-16
     %for j=1:col-16
       %  T(end-mod(size(T,1),16)+1:end, :) = [];
       %  T(:, end-mod(size(T,2),16)+1:end) = [];
