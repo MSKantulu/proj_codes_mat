@@ -12,7 +12,7 @@ for i=8:8:col1-7
     end
 end
 figure;
-[hog1, visualization1] = extractHOGFeatures(block1,'CellSize',[1 1]);
+[hog1, visualization1] = extractHOGFeatures(block1,'CellSize',[2 2]);
 subplot(1,2,1);
 imshow(block1);
 subplot(1,2,2);
@@ -33,7 +33,7 @@ for i2=8:8:col2-7
 end
 
 figure;
-[hog2, visualization2] = extractHOGFeatures(block2,'CellSize',[1 1]);
+[hog2, visualization2] = extractHOGFeatures(block2,'CellSize',[2 2]);
 subplot(1,2,1);
 imshow(block2);
 subplot(1,2,2);
@@ -69,11 +69,11 @@ h1 = stem(hog1);
 
 figure
 h2 = stem(hog2);
-
-v1
-v2
-[ra1,ca1]=size(v1)
-[ra2,ca2]=size(v2)
+%change datatype to double so that pca can be applied 
+v1=double(v1);
+v2=double(v2);
+[ra1,ca1]=size(v1);
+[ra2,ca2]=size(v2);
 %sz1=ra1*ca1/2
 %[rh1,ch1]=size(hog1)
 %[rh2,ch2]=size(hog2)
@@ -84,54 +84,17 @@ v2
 k1=1;
  for n1 = 1:12:ca1-1
     Y1{k1} = v1(:,n1:n1+1);
+    P1{k1} = pca(Y1{k1});
     k1 = k1+1;
  end
+ 
+ %T1{k1}= cell2mat(Y1{k1});
  
  k2=1;
  for n2 = 1:12:ca2-1
     Y2{k2} = v2(:,n2:n2+1);
+    P2{k2} = pca(Y2{k2});
     k2 = k2+1;
  end
- 
-%coeff1 = princomp(Y1)
-%v11 = typecast(Y2, double)
- 
-%coef1 = pca(v11);
- 
-%hog1
-%hog2
-
-%%%%%%%%%%% Below values taken from output itself
-v=[130  131
-  130  131
-  131  131
-  131  132
-  131  132
-  132  132
-  132  133
-  132  133
-  134  134
-  135  135
-  136  136
-  137  137
-  137  137
-  137  137
-  136  136]
-
-coef2 = princomp(v)
-%coef1 = princomp(Y1{3})
 
 %%%%%%%%%%%%%%%%%
-
-
-
-
-
-
-
-
-
-
-
-
-
