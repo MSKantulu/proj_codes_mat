@@ -1,7 +1,7 @@
 function h = image_MI(I1,I2)
 
 %IMAGE_MI : Calculates the Mutual Information(MI) between given two images.
-%The MI tells us about the similarity between the two images.
+%MI gives the similarity measure for comparing the two images.
 %INPUT : I1 an image and I2 a sketch
 %OUTPUT : MI between two images
 %Date of Last Change : 11 October 2016
