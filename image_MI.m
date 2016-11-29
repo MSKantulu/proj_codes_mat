@@ -11,8 +11,9 @@ function h = image_MI(I1,I2)
 %giving values for r , c , z(RGB)
 image1=I1(:,:,3);
 image2=I2;
-
-rows=size(image1,1);
+%Assumption is that no. of rows and columns are same in bothimage and
+%sketch (I1 and I2)
+rows=size(image1,1);  
 cols=size(image2,2);
 N=256;
 
@@ -24,13 +25,13 @@ for i=1:rows;
   end
 end
 
-imshow(h1)
+%imshow(h1);
 
 a=h1; % calculating joint histogram for two images
 [r,c] = size(a);
 b= a./(r*c); % normalized joint histogram
-y_marg=sum(b); %sum of the rows of normalized joint histogram
-x_marg=sum(b');%sum of columns of normalized joint histogran
+y_marg=sum(b); %dbt sum of the columns of normalized joint histogram
+x_marg=sum(b');%dbt sum of rows of normalized joint histogran
 
 Hy=0;
 for i=1:c;    %  col
